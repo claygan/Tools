@@ -211,6 +211,13 @@
 			<artifactId>poi-ooxml</artifactId>
 			<version>3.8</version>
 		</dependency>
+		<!-- crypto -->
+		<dependency>
+			<groupId>cryptix-jce-provider</groupId>
+			<artifactId>cryptix-jce-provider</artifactId>
+			<version>1.2.2</version>
+		</dependency>
+		<!--/crypto -->
 	</dependencies>
 	
 </project>
