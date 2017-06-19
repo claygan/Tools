@@ -22,10 +22,7 @@ public class SecondQuestion {
 			a[i] = sc.nextInt();
 		}
 		int a_m = a[0];//小美积分
-		int result = 0;
-		int turns = 0;
-		int greatNum = 0;//大于小美的个数
-		int lessNum = 0;//小于小美的个数
+		int turns = 0;//轮数
 		int ranking = 1;//排名
 		//begin
 		for (int i = 1; i < a.length; i++) {
