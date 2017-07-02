@@ -1,4 +1,4 @@
-package com.quest.algorithm.codeM;
+package com.quest.web.algorithm.codeM;
 
 /**
  * 给出一个长度为 n 的数列 { a[1] , a[2] , a[3] , ... , a[n] }，以及 m 组询问 ( l[i] , r[i] , k[i])。

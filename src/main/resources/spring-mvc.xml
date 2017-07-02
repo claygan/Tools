@@ -9,7 +9,7 @@
     	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
     	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
     	
-    	<context:component-scan base-package="com.quest.controllers" use-default-filters="false">
+    	<context:component-scan base-package="com.quest.web.controllers" use-default-filters="false">
 			<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 		</context:component-scan>
 		
@@ -73,7 +73,7 @@
 					<prop key="date_format">yyyy-MM-dd</prop>
 					<prop key="time_format">HH:mm:ss</prop>
 					<prop key="boolean_format">true,false</prop>
-					<prop key="template_exception_handler">com.quest.freemarker.FreemarkerExceptionHandler</prop>
+					<prop key="template_exception_handler">com.quest.web.freemarker.FreemarkerExceptionHandler</prop>
 				</props>
 			</property>
 			<!-- 传递到页面的变量 -->

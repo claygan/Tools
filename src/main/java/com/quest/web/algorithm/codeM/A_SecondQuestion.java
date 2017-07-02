@@ -1,4 +1,4 @@
-package com.quest.algorithm.codeM;
+package com.quest.web.algorithm.codeM;
 
 /**
  * 输入两个字符串A和B，合并成一个串C，属于A和B的字符在C中顺序保持不变。如"abc"和"xyz"可以被组合成"axbycz"或"abxcyz"等。

@@ -1,4 +1,4 @@
-package com.quest.algorithm.codeM;
+package com.quest.web.algorithm.codeM;
 
 /**
  * 有一个大水缸，里面水的温度为T单位，体积为C升。另有n杯水（假设每个杯子的容量是无限的），每杯水的温度为t[i]单位，体积为c[i]升。

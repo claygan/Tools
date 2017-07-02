@@ -16,11 +16,12 @@
 	<context:property-placeholder location="classpath:config.properties"/>
 	<util:properties id="config" location="classpath:config.properties" />
 	
-	<context:component-scan base-package="com.quest.controllers" use-default-filters="false">
+	<context:component-scan base-package="com.quest.web.controllers" use-default-filters="false">
 			<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 	
 	<bean id="serviceFactory" class="com.quest.commons.ServiceFactory"/>
 	
 <!-- 	<import resource="hessian.xml"/> -->
+	<import resource="spring-mybatis.xml"/>
 </beans>

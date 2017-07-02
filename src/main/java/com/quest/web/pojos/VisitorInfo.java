@@ -6,7 +6,7 @@
  * Copyright (c) 2016, www.zhongzhihui.com All Rights Reserved. 
  */
 
-package com.quest.pojos;
+package com.quest.web.pojos;
 
 import java.util.Date;
 

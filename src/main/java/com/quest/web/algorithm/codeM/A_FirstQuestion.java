@@ -1,4 +1,4 @@
-package com.quest.algorithm.codeM;
+package com.quest.web.algorithm.codeM;
 
 /**
  * 美团外卖的配送员用变速跑的方式进行身体训练。

@@ -1,4 +1,4 @@
-package com.quest.algorithm;
+package com.quest.web.algorithm;
 
 /** 
  * @ClassName: EightQueen
