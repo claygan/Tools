@@ -1,4 +1,4 @@
-package com.quest.algorithm.codeM;
+package com.quest.web.algorithm.codeM;
 
 import java.util.Scanner;
 

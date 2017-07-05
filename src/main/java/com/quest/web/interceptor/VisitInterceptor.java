@@ -1,4 +1,4 @@
-package com.quest.interceptor;
+package com.quest.web.interceptor;
 
 import java.util.Date;
 
@@ -14,7 +14,7 @@ import com.quest.commons.constants.GlobalDefine;
 import com.quest.commons.cookie.CookieUtil;
 import com.quest.commons.utils.JsonUtil;
 import com.quest.commons.utils.UAUtils;
-import com.quest.pojos.VisitorInfo;
+import com.quest.web.pojos.VisitorInfo;
 
 public class VisitInterceptor extends HandlerInterceptorAdapter{
 

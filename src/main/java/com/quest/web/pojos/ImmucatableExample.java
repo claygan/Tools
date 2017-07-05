@@ -1,4 +1,4 @@
-package com.quest.pojos;
+package com.quest.web.pojos;
 
 import java.util.HashMap;
 import java.util.Iterator;

@@ -2,7 +2,7 @@ package com.quest.test;
 
 import java.util.HashMap;
 
-import com.quest.pojos.ImmucatableExample;
+import com.quest.web.pojos.ImmucatableExample;
 
 public class ImmucatableTest {
 	@SuppressWarnings({ "unchecked", "rawtypes" })

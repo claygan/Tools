@@ -1,4 +1,4 @@
-package com.quest.freemarker;
+package com.quest.web.freemarker;
 import java.io.Writer;
 
 import freemarker.core.Environment;

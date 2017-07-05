@@ -1,4 +1,4 @@
-package com.quest.interceptor;
+package com.quest.web.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

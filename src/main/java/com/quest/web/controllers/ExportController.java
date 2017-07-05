@@ -1,4 +1,4 @@
-package com.quest.controllers;
+package com.quest.web.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
