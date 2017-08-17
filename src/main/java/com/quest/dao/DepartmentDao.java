@@ -2,6 +2,8 @@ package com.quest.dao;
 
 import com.quest.entity.Department;
 
+import java.util.List;
+
 public interface DepartmentDao {
     int deleteByPrimaryKey(Integer id);
 
@@ -16,4 +18,6 @@ public interface DepartmentDao {
     int updateByPrimaryKeySelective(Department record);
 
     int updateByPrimaryKey(Department record);
+
+    List<Department> selectByDeptName(String deptName);
 }

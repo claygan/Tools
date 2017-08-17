@@ -85,4 +85,10 @@
       description = #{description,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="selectByDeptName" parameterType="string" resultType="com.quest.entity.Department">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM department
+    WHERE deptName LIKE concat(concat("%",#{deptName}),"%")
+  </select>
 </mapper>

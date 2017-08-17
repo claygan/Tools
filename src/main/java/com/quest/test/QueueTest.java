@@ -5,8 +5,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.DelayQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.PriorityBlockingQueue;
-
-import org.junit.Test;
+import org.junit.*;
 
 /** 
  * @ClassName: QueueTest

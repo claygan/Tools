@@ -30,6 +30,28 @@
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+	<!-- page_filter -->
+	<filter>
+		<filter-name>pageFilter</filter-name>
+		<filter-class>com.quest.web.filter.PageFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>pageFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- shiro_filter -->
+	<filter>
+		<filter-name>shiroFilter</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+		<init-param>
+			<param-name>targetFilterLifecycle</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>shiroFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 	<!-- 配置spring上下文监听器，作用：在启动web容器时，就会自动装载applicationContext.xml -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
