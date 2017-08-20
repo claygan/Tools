@@ -7,18 +7,18 @@
   <version>1.0.0</version>
   <name>tools</name>
   
-  <!-- 设置默认jdk版本是1.6 -->
+  <!-- 设置默认jdk版本是1.8 -->
 	<profiles>  
 		<profile>  
-			<id>jdk-1.6</id>  
+			<id>jdk-1.8</id>
 			<activation>  
 				<activeByDefault>true</activeByDefault>  
-				<jdk>1.6</jdk>  
+				<jdk>1.8</jdk>
 			</activation>  
 			<properties>  
-				<maven.compiler.source>1.6</maven.compiler.source>
-				<maven.compiler.target>1.6</maven.compiler.target> 
-				<maven.compiler.compilerVersion>1.6</maven.compiler.compilerVersion>  
+				<maven.compiler.source>1.8</maven.compiler.source>
+				<maven.compiler.target>1.8</maven.compiler.target>
+				<maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
 			</properties>  
 		</profile>  
 	</profiles>  

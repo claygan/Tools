@@ -10,6 +10,7 @@ public class VMTest {
 		System.out.println("total:"+runtime.totalMemory());
 		System.out.println("max:"+runtime.maxMemory());
 		System.out.println("free:"+runtime.freeMemory());
+		System.out.println();
 	}
 
 }
