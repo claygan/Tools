@@ -15,7 +15,7 @@ import java.util.concurrent.Semaphore;
  */
 public class ThreadpoolTest {
     @Test
-    public void semaphoreTest(){
+    public void semaphoreTest() {
         int concurrency = 500;
         ExecutorService executorService = Executors.newFixedThreadPool(concurrency);
         //维护一个许可集
@@ -28,18 +28,18 @@ public class ThreadpoolTest {
                 public void run() {
                     list.add("a");
                     semaphore.release();//添加许可
-                    System.out.println(Thread.currentThread().getName()+":"+list.size());
+                    System.out.println(Thread.currentThread().getName() + ":" + list.size());
                 }
             });
         }
-        System.out.println(Thread.currentThread().getName()+":"+list.size());
+        System.out.println(Thread.currentThread().getName() + ":" + list.size());
         for (Runnable runnable : runnables) {
             semaphore.acquireUninterruptibly();
             executorService.execute(runnable);
         }
         //等待任务完成
         semaphore.acquireUninterruptibly(concurrency);
-        System.out.println(Thread.currentThread().getName()+":"+list.size());
+        System.out.println(Thread.currentThread().getName() + ":" + list.size());
     }
 
 }
