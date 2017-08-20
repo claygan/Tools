@@ -12,5 +12,5 @@ public class VMTest {
 		System.out.println("free:"+runtime.freeMemory());
 		System.out.println();
 	}
-
+   
 }
