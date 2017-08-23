@@ -31,14 +31,14 @@ public class ThreadpoolTest {
                 @Override
                 public void run() {
                     list.add("a");
-                    semaphore.release();//添加许可
+                    semaphore.release();//释放许可
                     System.out.println(Thread.currentThread().getName() + ":" + list.size());
                 }
             });
         }
         System.out.println(Thread.currentThread().getName() + ":" + list.size());
         for (Runnable runnable : runnables) {
-            semaphore.acquireUninterruptibly();
+            semaphore.acquireUninterruptibly();//获取一个许可证
             executorService.execute(runnable);
         }
         //等待任务完成
