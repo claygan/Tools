@@ -1,6 +1,10 @@
 package com.quest.test;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Formatter;
 
 import org.junit.Test;
 
@@ -62,4 +66,61 @@ public class BigDecimalTest {
 //		}
 		System.out.println(4/8);
 	}
+	/**
+	 *@Description: 保留两位小数
+	 */
+	@Test
+	public void test5(){
+		double value = 536.56733;
+		double value1 = 100.0000;
+		double value2 = 5.651E4;
+		double value3 = 5.651E-4;
+		//1.使用DecimalFormat,保留小数点后两位
+//		DecimalFormat df=new DecimalFormat("0.##");
+//		System.out.println(df.format(value));
+//		System.out.println(df.format(value1));
+//		System.out.println(df.format(value2));
+//		System.out.println(df.format(value3));
+
+		//2.使用BigDecimal，保留小数点后两位
+//		BigDecimal bd = new BigDecimal(value);
+//		System.out.println(bd.setScale(2, RoundingMode.HALF_UP).toString());
+//		BigDecimal bd1 = new BigDecimal(value1);
+//		System.out.println(bd1.setScale(2, RoundingMode.HALF_UP).toString());
+//		BigDecimal bd2 = new BigDecimal(value2);
+//		System.out.println(bd2.setScale(2, RoundingMode.HALF_UP).toString());
+//		BigDecimal bd3 = new BigDecimal(value3);
+//		System.out.println(bd3.setScale(2, RoundingMode.HALF_UP).toString());
+
+		//3.使用NumberFormat,保留小数点后两位
+//		NumberFormat nf = NumberFormat.getNumberInstance();
+//		nf.setMaximumFractionDigits(2);
+//		 /*
+//		  * setMinimumFractionDigits设置成2
+//		  * 如果不这么做，那么当value的值是100.00的时候返回100
+//		  * 而不是100.00
+//		  */
+//		nf.setMinimumFractionDigits(2);
+//		nf.setRoundingMode(RoundingMode.HALF_UP);
+//		//如果想输出的格式用逗号隔开，可以设置成true
+//		nf.setGroupingUsed(false);
+//		System.out.println(nf.format(value));
+//		System.out.println(nf.format(value1));
+//		System.out.println(nf.format(value2));
+//		System.out.println(nf.format(value3));
+
+		//4.使用java.util.Formatter,保留小数点后两位
+		//[%.2f] %:表示小数点前任意位数 2:表示两位小数格式后的结果为 f:表示浮点型
+//		System.out.println(new Formatter().format("%.2f", value).toString());
+//		System.out.println(new Formatter().format("%.2f", value1).toString());
+//		System.out.println(new Formatter().format("%.2f", value2).toString());
+//		System.out.println(new Formatter().format("%.2f", value3).toString());
+
+		//5.使用String.format来实现
+		System.out.println(String.format("%.2f", value).toString());
+		System.out.println(String.format("%.2f", value1).toString());
+		System.out.println(String.format("%.2f", value2).toString());
+		System.out.println(String.format("%.2f", value3).toString());
+	}
+
 }
