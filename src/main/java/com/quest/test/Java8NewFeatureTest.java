@@ -4,6 +4,7 @@ import com.quest.service.HandlerAware;
 import com.quest.service.impl.HandlerAwareImpl;
 import org.junit.Test;
 
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -30,5 +31,22 @@ public class Java8NewFeatureTest {
         aware.get();
         aware.set("SF");
         HandlerAware.put("C");
+    }
+
+    /**
+     * 证明 JVM 不知道异常检查
+    * */
+    @Test
+    public  void jvmCheckedException() {
+        doThrow(new SQLException());
+    }
+
+    static void doThrow(Exception e) {
+        Java8NewFeatureTest.<RuntimeException> doThrow0(e);
+    }
+
+    @SuppressWarnings("unchecked")
+    static <E extends Exception> void doThrow0(Exception e) throws E {
+        throw (E) e;
     }
 }

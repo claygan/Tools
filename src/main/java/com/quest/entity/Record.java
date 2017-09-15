@@ -1,5 +1,7 @@
 package com.quest.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -7,6 +9,7 @@ import java.util.Date;
  * Created by Quest on 2017/8/31.
  */
 public class Record implements Serializable {
+    @JSONField(name="r_name")
     private String name;
     private Date date;
 
