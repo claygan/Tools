@@ -9,5 +9,7 @@ package com.quest.web.algorithm.codeM;
 接下来 m 行，每行三个正整数 l[i] , r[i] , k[i] (1 ≤ l[i] ≤ r[i] ≤ n, 1 ≤ k[i] ≤ n)，描述一次询问。
  */
 public class A_FifthQuestion {
-
+    public static void main(String[] args) {
+        System.out.println("");
+    }
 }
