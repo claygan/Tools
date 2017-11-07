@@ -5,10 +5,12 @@
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:util="http://www.springframework.org/schema/util"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
     	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-    	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd" >
+    	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+		http://cxf.apache.org/jaxws
+        http://cxf.apache.org/schemas/jaxws.xsd" >
 	
 	<context:property-placeholder location="classpath:config.properties"/>
 	<util:properties id="config" location="classpath:config.properties" />
@@ -18,7 +20,23 @@
 	</context:component-scan>
 	
 	<bean id="serviceFactory" class="com.quest.commons.ServiceFactory"/>
-	
-<!-- 	<import resource="hessian.xml"/> -->
+
+	<import resource="classpath:META-INF/cxf/cxf.xml"/>
+
+	<jaxws:endpoint
+			id="helloWorld"
+			implementor="com.quest.webservice.impl.HelloWordImpl"
+			address="/helloWorld" />
+
+	<bean id="client"
+		  class="com.quest.webservice.HelloWorld"
+		  factory-bean="clientFactory"
+		  factory-method="create"/>
+
+	<bean id="clientFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+		<property name="serviceClass" value="com.quest.webservice.HelloWorld"/>
+		<property name="address" value="http://localhost:8080/webservice/helloWorld"/>
+	</bean>
+	<!-- 	<import resource="hessian.xml"/> -->
 	<!--<import resource="spring-mybatis.xml"/>-->
 </beans>

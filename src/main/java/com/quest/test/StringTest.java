@@ -7,7 +7,9 @@ import org.junit.Test;
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.time.Clock;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.HashMap;
 
 public class StringTest {
 	@Test
@@ -25,6 +27,10 @@ public class StringTest {
 //		String a = System.getProperty("java.io.tmpdir");
 //		System.out.println(a);
 //		System.out.println(Clock.systemDefaultZone().millis());
+		String atr = ",123";
+		String[] arr = atr.split(",");
+		System.out.println(Arrays.toString(arr));
+		System.out.println(arr.length);
 	}
 
 	public static void getString(String... args) {
@@ -62,5 +68,11 @@ public class StringTest {
 		System.out.print(String.format("%f %n", num)); // 123.456790
 		System.out.print(String.format("%a %n", num)); // 0x1.edd3c0bb46929p6
 		System.out.print(String.format("%g %n", num)); // 123.457
+	}
+	@Test
+	public void valueofTest(){
+		HashMap map = new HashMap();
+		System.out.println((map.get("a")));
+		System.out.println(String.valueOf(map.get("a")));
 	}
 }

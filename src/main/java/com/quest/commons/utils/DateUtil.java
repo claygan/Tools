@@ -205,6 +205,16 @@ public class DateUtil {
         return in.getTime();
     }
 
+    public static Date preTime(Date date) {
+        Calendar in = Calendar.getInstance();
+        in.setTime(date);
+        in.set(Calendar.HOUR_OF_DAY, 0);
+        in.set(Calendar.MINUTE, 0);
+        in.set(Calendar.SECOND, 0);
+        in.set(Calendar.MILLISECOND, 0);
+        return in.getTime();
+    }
+
     public static Date add(Date date, int field, int value) {
         Calendar in = Calendar.getInstance();
         in.setTime(date);
@@ -219,4 +229,6 @@ public class DateUtil {
         date = DateUtil.parseDate(format, "yyyy-MM-dd HH:mm:ss");
         System.out.println(date);
     }
+
+
 }
