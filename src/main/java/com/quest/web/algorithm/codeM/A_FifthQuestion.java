@@ -10,6 +10,6 @@ package com.quest.web.algorithm.codeM;
  */
 public class A_FifthQuestion {
     public static void main(String[] args) {
-        System.out.println("");
+        System.out.println("111111111111111");
     }
 }
