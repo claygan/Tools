@@ -2,6 +2,7 @@ package com.quest.test;
 
 import com.quest.entity.Record;
 import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
 
 import java.io.File;
@@ -10,6 +11,7 @@ import java.time.Clock;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 
 public class StringTest {
 	@Test
@@ -75,4 +77,45 @@ public class StringTest {
 		System.out.println((map.get("a")));
 		System.out.println(String.valueOf(map.get("a")));
 	}
+
+	@Test
+	public void subfix(){
+		String fileName= "aaaa.docx";
+		String prefix=fileName.substring(fileName.lastIndexOf(".")+1);
+		System.out.println(prefix);
+	}
+	@Test
+	public void lowerCase(){
+		String str= "IOS_1.0.1";
+		System.out.println(str.toLowerCase());
+		System.out.println(str.toLowerCase(Locale.CHINESE));
+		System.out.println(str.toLowerCase(Locale.ENGLISH));
+	}
+	@Test
+	public void subString(){
+		String str = "/admin/mdc/doc/";
+		System.out.println(StringUtils.chop(str));//去掉最后一个字符
+		String s2 = "//admin/mdc/doc////";
+		System.out.println(StringUtils.strip(s2,"/"));//截取两边连续的字符
+	}
+
+	@Test
+	public void spilt(){
+		String str = "510000000000|510600000000|510681000000|510681102000";
+		String[] parents = str.split("\\|");
+		System.out.println(Arrays.toString(parents));
+		/*
+			关于点的问题是用string.split("[.]") 解决。
+			关于竖线的问题用 string.split("\\|")解决。
+			关于星号的问题用 string.split("\\*")解决。
+			关于斜线的问题用 sring.split("\\\\")解决。
+			关于中括号的问题用 sring.split("\\[\\]")解决。
+		*/
+	}
+	@Test
+	public void subString2(){
+		String str = "fasfaasdfasfa";
+		System.out.println(str.substring(0,20)+"...");
+	}
+
 }

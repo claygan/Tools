@@ -17,6 +17,6 @@ package com.quest.commons.cookie.crypto;
 public class CryptixCryptoLoader {
 	
 	static {
-		java.security.Security.addProvider(new cryptix.jce.provider.CryptixCrypto());
+//		java.security.Security.addProvider(new cryptix.jce.provider.CryptixCrypto());
 	}
 }

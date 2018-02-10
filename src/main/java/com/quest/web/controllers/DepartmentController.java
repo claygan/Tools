@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/depment")
 public class DepartmentController extends BaseController{
 
-    @Autowired
+   /* @Autowired
     private DepartmentService departmentService;
 
     @RequestMapping("list")
@@ -26,5 +26,5 @@ public class DepartmentController extends BaseController{
         Pager<Department> departmentPager = departmentService.queryDepartment(deptName);
         model.addAttribute("list",departmentPager.getList());
         return "/dept/list";
-    }
+    }*/
 }

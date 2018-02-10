@@ -50,7 +50,7 @@
 		
 		<!-- 视图解释器 -->
 		<!-- 1.freemarker视图解释器 -->
-    	<bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+    	<!--<bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
 			<property name="cache" value="true" />
 			<property name="prefix" value="" />
 			<property name="suffix" value=".html" />
@@ -58,11 +58,11 @@
 			<property name="requestContextAttribute" value="request" />
 			<property name="order" value="1"/>
 		</bean>
-		<!-- freemarker配置 -->
+		&lt;!&ndash; freemarker配置 &ndash;&gt;
 		<bean id="freeMarkerConfigurer" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
-			<!-- 模板加载路径 -->
+			&lt;!&ndash; 模板加载路径 &ndash;&gt;
 			<property name="templateLoaderPath" value="/WEB-INF/template/" />
-			<!-- 参数设置 -->
+			&lt;!&ndash; 参数设置 &ndash;&gt;
 			<property name="freemarkerSettings">
 				<props>
 					<prop key="defaultEncoding">UTF-8</prop>
@@ -76,16 +76,16 @@
 					<prop key="template_exception_handler">com.quest.web.freemarker.FreemarkerExceptionHandler</prop>
 				</props>
 			</property>
-			<!-- 传递到页面的变量 -->
+			&lt;!&ndash; 传递到页面的变量 &ndash;&gt;
 			<property name="freemarkerVariables">
 				<map>
 				</map>
 			</property>
-		</bean>
+		</bean>-->
     	<!-- 2.通用视图解释器 -->
 		<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 			<property name="prefix" value="/WEB-INF/template/" />
-			<property name="suffix" value=".html" />
+			<property name="suffix" value=".jsp" />
 			<property name="contentType" value="text/html;charset=UTF-8"/>
 			<property name="viewClass" value="org.springframework.web.servlet.view.InternalResourceView" />
 			<property name="order" value="2"/>
@@ -112,4 +112,6 @@
 				</map>
 			</property>
 		</bean>
+
+	<bean id="departmentService" class="com.quest.service.impl.DepartmentServiceImpl"/>
 </beans>

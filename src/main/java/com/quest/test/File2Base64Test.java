@@ -4,7 +4,11 @@ import com.quest.commons.utils.Base64Util;
 import org.junit.Test;
 
 import java.io.File;
-
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLClassLoader;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -21,5 +25,18 @@ public class File2Base64Test {
 
         String targetPath = Base64Util.decoderBase64File(encodedFileString, "F:\\Desktop\\b.jpg");
         System.out.println("targetPath: "+targetPath);
+    }
+
+    @Test
+    public void test2() throws MalformedURLException {
+        File file = new File("F:\\Desktop\\MdcApiImpl.class");
+
+        System.out.println(file.toURI());
+        System.out.println(file.toURI().toURL());
+        ClassLoader parent = Thread.currentThread().getContextClassLoader();
+        List<URL> urls = new ArrayList<>();
+        urls.add(file.toURI().toURL());
+        URLClassLoader ucl = new URLClassLoader(urls.toArray(new URL[urls.size()]), parent);
+        System.out.println(ucl);
     }
 }

@@ -230,11 +230,11 @@
 			<version>3.8</version>
 		</dependency>
 		<!-- crypto -->
-		<dependency>
+		<!--<dependency>
 			<groupId>cryptix-jce-provider</groupId>
 			<artifactId>cryptix-jce-provider</artifactId>
 			<version>1.2.2</version>
-		</dependency>
+		</dependency>-->
 		<!--/crypto -->
 		<!-- json -->
 		<dependency>
@@ -353,6 +353,11 @@
 		  <groupId>dom4j</groupId>
 		  <artifactId>dom4j</artifactId>
 		  <version>1.6.1</version>
+	  </dependency>
+	  <dependency>
+		  <groupId>itext</groupId>
+		  <artifactId>itext</artifactId>
+		  <version>1.3</version>
 	  </dependency>
   </dependencies>
 	
