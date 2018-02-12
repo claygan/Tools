@@ -35,7 +35,7 @@ public class HashTest {
 		ConcurrentHashMap<String , Object> cmap = new ConcurrentHashMap<String, Object>();
 		cmap.put("a", "A");
 		cmap.put("b", "B");
-		
+		HashMap map = new HashMap();
 		
 	}
 }
