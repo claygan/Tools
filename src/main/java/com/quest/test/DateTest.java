@@ -66,4 +66,42 @@ public class DateTest {
         int value = 4;
         System.out.println(Double.valueOf(value));
     }
+
+    @Test
+    public void monthStartAndEnd(){
+        //获取上个月的第一天时间和最后一天时间
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.MONTH, -1);//前一个月
+        SimpleDateFormat firstDay = new SimpleDateFormat("yyyy-MM-dd 00:00:00");
+        System.out.println(firstDay.format(cal.getTime()));
+
+        int maxDay = cal.getActualMaximum(Calendar.DAY_OF_MONTH);
+        cal.set(Calendar.DAY_OF_MONTH, maxDay);
+        SimpleDateFormat endDay = new SimpleDateFormat("yyyy-MM-dd 23:59:59");
+        System.out.println(endDay.format(cal.getTime()));
+    }
+    @Test
+    public void dayStartAndEnd(){
+        Calendar sevenCal = Calendar.getInstance();
+        sevenCal.add(Calendar.DAY_OF_MONTH, -7);
+        SimpleDateFormat firstFormat = new SimpleDateFormat("yyyy-MM-dd 00:00:00");
+        String sevenFirst = firstFormat.format(sevenCal.getTime());
+        sevenCal.add(Calendar.DAY_OF_MONTH, +6);
+        SimpleDateFormat endFormat = new SimpleDateFormat("yyyy-MM-dd 23:59:59");
+        String sevenEnd = endFormat.format(sevenCal.getTime());
+        System.out.println(sevenFirst);
+        System.out.println(sevenEnd);
+    }
+    @Test
+    public void sqlDate(){
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DAY_OF_MONTH, -1);//前一天
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String currentDate = dateFormat.format(cal.getTime());
+        System.out.println(currentDate);
+
+
+        java.sql.Date date = new java.sql.Date(cal.getTimeInMillis());
+        System.out.println(date);
+    }
 }

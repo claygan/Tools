@@ -117,5 +117,14 @@ public class StringTest {
 		String str = "fasfaasdfasfa";
 		System.out.println(str.substring(0,20)+"...");
 	}
+	@Test
+	public void spilt2(){
+		String str = "2018-01";
+		String[] result = str.split("-");
+		System.out.println(result[0]);
+		if (result.length > 1) {
+			System.out.println(result[1]);
+		}
+	}
 
 }
