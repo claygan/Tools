@@ -11,6 +11,8 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.DelimiterBasedFrameDecoder;
+import io.netty.handler.codec.FixedLengthFrameDecoder;
+import io.netty.handler.codec.LineBasedFrameDecoder;
 import io.netty.handler.codec.string.StringDecoder;
 
 /**
@@ -37,8 +39,10 @@ public class NettyServer {
                         @Override
                         protected void initChannel(SocketChannel socketChannel) throws Exception {
                             //解决粘包拆包问题
-                            ByteBuf delimiter = Unpooled.copiedBuffer("$_".getBytes());
-                            socketChannel.pipeline().addLast(new DelimiterBasedFrameDecoder(1024, delimiter));//自定义分隔符作为消息结束方式
+//                            ByteBuf delimiter = Unpooled.copiedBuffer("$_".getBytes());
+//                            socketChannel.pipeline().addLast(new DelimiterBasedFrameDecoder(1024, delimiter));//自定义分隔符作为消息结束方式
+//                            socketChannel.pipeline().addLast(new FixedLengthFrameDecoder(10));//定长分隔符
+                            socketChannel.pipeline().addLast(new LineBasedFrameDecoder(1024));//换行符\n
                             socketChannel.pipeline().addLast(new StringDecoder());
                             socketChannel.pipeline().addLast(new NettyServerHandler());
                         }

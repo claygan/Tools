@@ -17,7 +17,9 @@ public class NettyClientHandler extends ChannelHandlerAdapter {
         //出现粘包，拆包问题
         ByteBuf buf = null;
         for (int i = 0; i < 5; i++) {
-            byte[] req = ("query time"+"$_").getBytes();
+//            byte[] req = ("query time"+"$_").getBytes();//自定义结束符
+//            byte[] req = ("query time").getBytes();
+            byte[] req = ("query time"+System.getProperty("line.separator")).getBytes();
             buf = Unpooled.buffer(req.length);
             buf.writeBytes(req);
             ctx.writeAndFlush(buf);
@@ -29,10 +31,11 @@ public class NettyClientHandler extends ChannelHandlerAdapter {
      */
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        ByteBuf buf = (ByteBuf) msg;
+        /*ByteBuf buf = (ByteBuf) msg;
         byte[] req = new byte[buf.readableBytes()];
         buf.readBytes(req);
-        String body = new String(req, "UTF-8");
+        String body = new String(req, "UTF-8");*/
+        String body = (String) msg;
         System.out.println("接收到服务端返回的数据：" + body);
     }
 

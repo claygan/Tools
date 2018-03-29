@@ -13,13 +13,15 @@ import java.sql.Date;
 public class NettyServerHandler extends ChannelHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        ByteBuf buf = (ByteBuf) msg;
+        /*ByteBuf buf = (ByteBuf) msg;
         byte[] req = new byte[buf.readableBytes()];
         buf.readBytes(req);
-        String body = new String(req, "UTF-8");
+        String body = new String(req, "UTF-8");*/
+        String body = (String) msg;
         System.out.println("[" + Thread.currentThread() + "]--接收到数据：" + body);
         String currentTime = "query time".equalsIgnoreCase(body) ? new Date(System.currentTimeMillis()).toString() : "bad order";
-        //
+//        currentTime += "$_";
+        currentTime += System.getProperty("line.separator");
         ByteBuf resp = Unpooled.copiedBuffer(currentTime.getBytes());
         //将待发送的消息放到发送缓冲区中
         ctx.writeAndFlush(resp);
