@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 import static java.lang.reflect.Proxy.newProxyInstance;
@@ -45,5 +46,13 @@ public class ReflectTest {
         Hello proxy = (Hello) Proxy.newProxyInstance(obj.getClass().getClassLoader(), obj.getClass().getInterfaces(), handler);
         proxy.sayHello();
 
+    }
+
+    @Test
+    public void invoceMethod() throws Exception {
+        Class cls = Class.forName("com.quest.test.reflect.enums.OrderStatusEnum");
+        Method method = cls.getMethod("getTextByCode", String.class);
+        String text = (String) method.invoke(null, "21");
+        System.out.println(text);
     }
 }

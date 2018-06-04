@@ -3,9 +3,12 @@ package com.quest.test;
 import com.quest.commons.utils.DateUtil;
 import org.junit.Test;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static com.itextpdf.text.pdf.PdfName.ca;
 import static org.apache.ibatis.ognl.DynamicSubscript.first;
@@ -103,5 +106,17 @@ public class DateTest {
 
         java.sql.Date date = new java.sql.Date(cal.getTimeInMillis());
         System.out.println(date);
+    }
+    @Test
+    public void dateFormatTest(){
+        String date = "2018-12";
+        String format = "((19|20)[0-9]{2})-(0?[1-9]|1[012])";
+        Pattern pattern = Pattern.compile(format);
+        Matcher matcher = pattern.matcher(date);
+        if (matcher.matches()) {
+            System.out.println(true);
+        }else{
+            System.out.println(false);
+        }
     }
 }

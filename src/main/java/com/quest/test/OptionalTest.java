@@ -7,7 +7,7 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 /**
- * Created by Quest on 2017/9/1.
+ * jdk8新特性，判空工具
  */
 public class OptionalTest {
     /*

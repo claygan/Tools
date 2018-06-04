@@ -126,5 +126,10 @@ public class StringTest {
 			System.out.println(result[1]);
 		}
 	}
+	@Test
+	public void sub3(){
+		String str = "hcn.tongxiang.patient";
+		System.out.println(str.substring(0,str.lastIndexOf(".")));
+	}
 
 }
