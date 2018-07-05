@@ -1,8 +1,12 @@
 package com.quest.test;
 
 import com.quest.exceptions.ValueAbsentException;
+import org.apache.commons.collections.CollectionUtils;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
 
@@ -100,5 +104,19 @@ public class OptionalTest {
         Optional<String> shortName = anotherName.filter((value) -> value.length() > 6);
         //输出：name长度不足6字符
         System.out.println(shortName.orElse("The name is less than 6 characters"));
+    }
+
+    @Test
+    public void collections(){
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        System.out.println(CollectionUtils.isNotEmpty(null));
+    }
+    @Test
+    public void test1(){
+        String str = "1,2";
+        System.out.println(Arrays.toString(str.split(",")));
     }
 }

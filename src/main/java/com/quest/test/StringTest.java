@@ -1,17 +1,16 @@
 package com.quest.test;
 
+import com.quest.commons.utils.StringReplace;
 import com.quest.entity.Record;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.ArrayUtils;
 import org.junit.Test;
 
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.time.Clock;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Locale;
+import java.util.*;
 
 public class StringTest {
 	@Test
@@ -130,6 +129,32 @@ public class StringTest {
 	public void sub3(){
 		String str = "hcn.tongxiang.patient";
 		System.out.println(str.substring(0,str.lastIndexOf(".")));
+	}
+
+	@Test
+	public void arr(){
+		String[] sendFlags = { "2", "3"};
+		String[] saveFlags = {"2", "3"};
+		Set<String> resultSet = new HashSet<>(Arrays.asList(ArrayUtils.addAll(sendFlags,saveFlags)));
+		System.out.println(resultSet);
+
+	}
+	@Test
+	public void sub(){
+		String atr = "hcn.patient.";
+		System.out.println(getTenantId(atr));
+
+	}
+
+	public static String getTenantId(String productCode) {
+		return productCode.substring(0, productCode.lastIndexOf("."));
+	}
+
+	@Test
+	public void StringReplace() {
+		String template = "aaaa【变量】aa,bbbbb【变量】bb";
+		String[] param = new String[]{"3","4"};
+		System.out.println(StringReplace.replaceZ_CH(template, param));
 	}
 
 }
