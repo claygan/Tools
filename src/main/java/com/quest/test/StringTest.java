@@ -1,5 +1,9 @@
 package com.quest.test;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.quest.commons.utils.StringReplace;
 import com.quest.entity.Record;
 import org.apache.commons.beanutils.BeanUtils;
@@ -11,6 +15,8 @@ import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.time.Clock;
 import java.util.*;
+
+import static com.lowagie.text.Entities.map;
 
 public class StringTest {
 	@Test
@@ -155,6 +161,32 @@ public class StringTest {
 		String template = "aaaa【变量】aa,bbbbb【变量】bb";
 		String[] param = new String[]{"3","4"};
 		System.out.println(StringReplace.replaceZ_CH(template, param));
+	}
+
+	@Test
+	public void instance(){
+		Object anObject = 123;
+		if (anObject instanceof String) {
+			System.out.println((String)anObject);
+		}else{
+			System.out.println(anObject.getClass());
+		}
+	}
+	@Test
+	public void jsonParse(){
+		String json = "{\"personName\":\"王玉婷\",\"consultServiceRecordId\":\"\",\"mpiId\":\"c9563b6e58e44cb291870c753aea6f31\",\"personHeader\":\"null\"}";
+//		JSONObject obj = JSON.parseObject(json);
+//		System.out.println(obj.getString("consultServiceRecordId"));
+		JsonObject obj2 = (JsonObject) new JsonParser().parse(json);
+		System.out.println(obj2.get("consultServiceRecordId")!=null);
+		System.out.println(obj2.get("consultServiceRecordId").getAsString());
+		System.out.println(StringUtils.isNotBlank(obj2.get("consultServiceRecordId").getAsString()));
+	}
+	@Test
+	public void subStrings(){
+		String productCode = "hcn.patient_ios";
+		System.out.println(ProductUtil.getParentProductCode(productCode));
+		System.out.println(ProductUtil.getParentProductCode(productCode));
 	}
 
 }
