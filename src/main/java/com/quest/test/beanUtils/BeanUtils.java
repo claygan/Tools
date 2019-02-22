@@ -1,5 +1,6 @@
 package com.quest.test.beanUtils;
 
+import com.google.common.collect.Maps;
 import org.dozer.DozerBeanMapperSingletonWrapper;
 import org.dozer.Mapper;
 import org.springframework.beans.BeansException;
@@ -7,15 +8,18 @@ import org.springframework.beans.FatalBeanException;
 import org.springframework.util.Assert;
 
 import java.beans.PropertyDescriptor;
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 对象拷贝
- * apache-BeanUtils：不支持父拷贝，null值覆盖
- * String-BeanUtils：支持父拷贝，null值覆盖
+ * apache-BeanUtils：不支持父拷贝，null值覆盖,包装类基本类不能互转，会改变原source数据，遇到基本类会很难受,支持与map互转
+ * String-BeanUtils：支持父拷贝，null值覆盖，包装类基本类可以互转
  * 该BeanUtils，继承自String，解决null值覆盖问题
+ * dozer：根据mapping文件按需自由配置
  */
 public class BeanUtils extends org.springframework.beans.BeanUtils {
 
@@ -48,5 +52,22 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
                 }
             }
         }
+    }
+    public static Map<String, Object> objectToMap(Object obj) throws Exception {
+        if(obj == null){
+            return null;
+        }
+
+        Map<String, Object> map = Maps.newHashMap();
+
+        Field[] declaredFields = obj.getClass().getDeclaredFields();
+        for (Field field : declaredFields) {
+            field.setAccessible(true);
+            if(field.get(obj) != null){
+                map.put(field.getName(), field.get(obj));
+            }
+        }
+
+        return map;
     }
 }

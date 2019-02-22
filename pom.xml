@@ -380,7 +380,18 @@
 		  <artifactId>dozer</artifactId>
 		  <version>5.4.0</version>
 	  </dependency>
-
+	  <!--xmltojson-->
+	  <dependency>
+		  <groupId>xom</groupId>
+		  <artifactId>xom</artifactId>
+		  <version>1.2.5</version>
+	  </dependency>
+	  <!--2xml-->
+	  <dependency>
+		  <groupId>com.thoughtworks.xstream</groupId>
+		  <artifactId>xstream</artifactId>
+		  <version>1.4.10</version>
+	  </dependency>
   </dependencies>
 	
 </project>

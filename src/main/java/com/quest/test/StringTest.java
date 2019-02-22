@@ -2,14 +2,18 @@ package com.quest.test;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.github.pagehelper.util.StringUtil;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.quest.commons.utils.StringReplace;
 import com.quest.entity.Record;
 import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.beanutils.converters.IntegerConverter;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.junit.Test;
+import org.springframework.aop.support.AopUtils;
 
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
@@ -17,6 +21,7 @@ import java.time.Clock;
 import java.util.*;
 
 import static com.lowagie.text.Entities.map;
+import static com.sun.tools.doclint.Entity.lang;
 
 public class StringTest {
 	@Test
@@ -187,6 +192,50 @@ public class StringTest {
 		String productCode = "hcn.patient_ios";
 		System.out.println(ProductUtil.getParentProductCode(productCode));
 		System.out.println(ProductUtil.getParentProductCode(productCode));
+	}
+
+	@Test
+	public void StringUtils(){
+		String str = null;
+		System.out.println("apache-lang:"+StringUtils.isNotBlank(str));
+		System.out.println("apache-lang3:"+ org.apache.commons.lang3.StringUtils.isNotBlank(str));
+		System.out.println("apache-cxf:"+ !org.apache.cxf.common.util.StringUtils.isEmpty(str));
+		System.out.println("alibaba-druid:"+ !com.alibaba.druid.util.StringUtils.isEmpty(str));
+		System.out.println("spring:"+ !org.springframework.util.StringUtils.isEmpty(str));
+		System.out.println("ctrip-apollo:"+ !com.ctrip.framework.apollo.core.utils.StringUtils.isBlank(str));
+		System.out.println("github-pagehelper:"+ StringUtil.isNotEmpty(str));
+	}
+
+	@Test
+	public void parseInt(){
+		Object obj = null;
+//		System.out.println(Integer.parseInt(String.valueOf(obj)));
+		System.out.println(NumberUtils.toInt(String.valueOf(obj), 0));
+	}
+	@Test
+	public void chatAt(){
+		String key = "Xds";
+//		String json = "{\"birthday\":\"1948-03-26\",\"masterFlag\":\"y\",\"waterSourceCode\":\"1\",\"rhBloodCode\":\"1\",\"homePlace\":\"江苏省无锡市8100000000县璜土镇芦墩19组 村 璜土芦墩后栗村128号 号\",\"other\":{\"pastHiss\":{\"PastHis\":[{\"pastHisName\":\"上呼吸道感染\",\"pastHisTime\":\"2015-06-18\"},{\"pastHisName\":\"胃炎\",\"pastHisTime\":\"2015-03-20\"},{\"pastHisName\":\"感染\",\"pastHisTime\":\"2015-03-19\"},{\"pastHisName\":\"胃炎\",\"pastHisTime\":\"2015-03-16\"},{\"pastHisName\":\"胃炎\",\"pastHisTime\":\"2015-03-11\"},{\"pastHisName\":\"软组织挫伤\",\"pastHisTime\":\"2015-02-02\"},{\"pastHisName\":\"乏力\",\"pastHisTime\":\"2015-01-18\"},{\"pastHisName\":\"乏力\",\"pastHisTime\":\"2015-01-15\"},{\"pastHisName\":\"乏力\",\"pastHisTime\":\"2015-01-14\"},{\"pastHisName\":\"上呼吸道感染\",\"pastHisTime\":\"2015-01-13\"},{\"pastHisName\":\"乏力\",\"pastHisTime\":\"2015-01-12\"},{\"pastHisName\":\"上呼吸道感染\",\"pastHisTime\":\"2015-01-11\"},{\"pastHisName\":\"上呼吸道感染\",\"pastHisTime\":\"2015-01-05\"},{\"pastHisName\":\"上呼吸道感染\",\"pastHisTime\":\"2015-01-04\"},{\"pastHisName\":\"水肿\",\"pastHisTime\":\"2014-03-20\"}]},\"operationHistorys\":\"\",\"xds\":{\"Xds\":{\"code\":\"1\"}},\"fqs\":{\"Fqs\":{\"code\":\"2\"}},\"disabilityCodes\":\"\",\"riskFactorsTypeCodes\":{\"RiskFactorsTypeCode\":{\"code\":\"1\"}},\"drugAllergens\":{\"DrugAllergen\":{\"code\":\"1\"}},\"geneticDiseaseHistoryFlag\":\"1\",\"mqs\":{\"Mqs\":{\"code\":\"2\"}},\"zns\":{\"Zns\":{\"code\":\"1\"}},\"operationHistoryFlag\":\"1\"},\"deadFlag\":\"2\",\"idCard\":\"320219194803260273\",\"livestockColumn\":\"0\",\"educationCode\":\"3\",\"isHypertension\":\"y\",\"insuranceCode\":\"3\",\"maritalStatusCode\":\"2\",\"empiId\":\"32028181031410025543\",\"nationalityCode\":\"262\",\"workCode\":\"8\",\"contact\":\"季东\",\"manaUnitId\":\"46640426-9\",\"lastModifyDate\":\"2018-04-17\",\"workPlace\":\"无\",\"nationCode\":\"1\",\"registeredPermanent\":\"1\",\"address\":\"江苏省无锡市江阴市璜土镇芦墩村江阴璜土芦墩村19组128号号\",\"relaCode\":\"0\",\"phrId\":\"32028181031000375835\",\"washroom\":\"1\",\"personName\":\"季松云\",\"familyId\":\"32028181031000124619\",\"sexCode\":\"1\",\"phoneNumber\":\"13196515520\",\"fuelType\":\"1\",\"cookAirTool\":\"2\",\"createUser\":\"81031401\",\"bloodTypeCode\":\"5\",\"isDiabetes\":\"y\",\"contactPhone\":\"13196515520\",\"createUnit\":\"璜土社区卫生服务中心\",\"status\":\"01\"}";
+		String json = "{\"birthday\":\"1948-03-26\",\"other\":{\"pastHiss\":{\"PastHis\":[{\"pastHisName\":\"上呼吸道感染\",\"pastHisTime\":\"2015-06-18\"},{\"pastHisName\":\"胃炎\",\"pastHisTime\":\"2015-03-20\"}]},\"xds\":{\"Xds\":{\"code\":\"1\"}},\"fqs\":{\"Fqs\":{\"code\":\"2\"}}},\"deadFlag\":\"2\"}";
+		String data = "{\"" + key + "\":";
+		int index = json.indexOf(data);
+		if("[".equals(json.charAt(index+data.length())+"")){
+			json = StringUtils.replace(json, data, "");
+			int index2 = json.indexOf("]", index + 1);
+			json = json.substring(0, index2 + 1) + json.substring(index2 + 2);
+		}else{
+			json = StringUtils.replace(json, data, "[");
+			int index2 = json.indexOf("}", index + 1);
+			json = json.substring(0, index2 + 1) +"]"+ json.substring(index2 + 2);
+		}
+		System.out.println(json);
+	}
+	@Test
+	public void replace(){
+		String t="asdf#{\"s\"}:sadf;kal#{}";
+		System.out.println(t.indexOf("#{\"s\"}:"));
+		String replace = StringUtils.replaceOnce(t,"#{\"s\"}:","<input>");
+		System.out.println(replace);
 	}
 
 }
