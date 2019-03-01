@@ -1,5 +1,10 @@
 package com.quest.test.hashMap;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 /**
  * Created by Quest on 2018/2/11.
  */
@@ -38,5 +43,7 @@ public class QuestHashMapTest {
         map.put("30", "独行侠");
         map.print();
         System.out.println(map.get("23"));
+        Map hashMap = new HashMap();
+        Set set = new HashSet<>();
     }
 }
