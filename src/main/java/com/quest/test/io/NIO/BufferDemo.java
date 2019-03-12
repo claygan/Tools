@@ -14,7 +14,7 @@ import java.nio.channels.FileChannel;
 public class BufferDemo {
     public static void main(String[] args) {
         try {
-            RandomAccessFile file = new RandomAccessFile("F:\\Desktop\\家电统计.txt", "r");
+            RandomAccessFile file = new RandomAccessFile("F:\\Desktop\\复诊配药相关.txt", "r");
             FileChannel channel = file.getChannel();
             ByteBuffer readBuffer = ByteBuffer.allocate(1024);
             System.out.println("position:" + readBuffer.position() + "---limit:" + readBuffer.limit() + "---capacity:" + readBuffer.capacity());
