@@ -53,7 +53,7 @@
     </appender> 
 	
 	<!-- 根logger：日志级别：TRACE < DEBUG < INFO < WARN < ERROR -->
-	<root level="DEBUG">
+	<root level="WARN">
 		<appender-ref ref="ASYNC" />
 	</root>
 </configuration>

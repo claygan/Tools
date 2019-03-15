@@ -237,5 +237,16 @@ public class StringTest {
 		String replace = StringUtils.replaceOnce(t,"#{\"s\"}:","<input>");
 		System.out.println(replace);
 	}
+	@Test
+	public void StringTokenizer(){
+		StringTokenizer tokenizer = new StringTokenizer("as,ew,ds,ge");
+		while (tokenizer.hasMoreTokens()) {
+			System.out.println(tokenizer.nextToken(","));
+		}
+	}
+	@Test
+	public void format(){
+		System.out.println(String.format("%.2f", 0.1));
+	}
 
 }
